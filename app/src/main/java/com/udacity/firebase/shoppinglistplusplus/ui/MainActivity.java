@@ -1,6 +1,7 @@
 package com.udacity.firebase.shoppinglistplusplus.ui;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.ui.activeListDetails.ActiveListDetailsActivity;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.AddListDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.ShoppingListsFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.AddMealDialogFragment;
@@ -22,7 +24,7 @@ import com.udacity.firebase.shoppinglistplusplus.ui.meals.MealsFragment;
  * Represents the home screen of the app which
  * has a {@link ViewPager} with {@link ShoppingListsFragment} and {@link MealsFragment}
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements ShoppingListsFragment.ListClickCallback{
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -103,6 +105,13 @@ public class MainActivity extends BaseActivity {
         DialogFragment dialog = AddMealDialogFragment.newInstance();
         dialog.show(MainActivity.this.getFragmentManager(), "AddMealDialogFragment");
     }
+
+    @Override
+    public void onItemSelected() {
+        Intent mIntent = new Intent(this, ActiveListDetailsActivity.class);
+        startActivity(mIntent);
+    }
+
 
     /**
      * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state
