@@ -19,6 +19,7 @@ import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.AddListDialogFra
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.ShoppingListsFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.AddMealDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.MealsFragment;
+import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
  * Represents the home screen of the app which
@@ -107,8 +108,9 @@ public class MainActivity extends BaseActivity implements ShoppingListsFragment.
     }
 
     @Override
-    public void onItemSelected() {
+    public void onItemSelected(String listId) {
         Intent mIntent = new Intent(this, ActiveListDetailsActivity.class);
+        mIntent.putExtra(Constants.KEY_LIST_ID, listId);
         startActivity(mIntent);
     }
 
