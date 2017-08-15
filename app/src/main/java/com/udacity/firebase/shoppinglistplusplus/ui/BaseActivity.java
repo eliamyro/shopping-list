@@ -18,28 +18,27 @@ import com.udacity.firebase.shoppinglistplusplus.R;
  * It implements GoogleApiClient callbacks to enable "Logout" in all activities
  * and defines variables that are being shared across all activities
  */
-public abstract class BaseActivity extends AppCompatActivity implements
-        GoogleApiClient.OnConnectionFailedListener {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    protected GoogleApiClient mGoogleApiClient;
+//    protected GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         /* Setup the Google API object to allow Google logins */
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestEmail()
+//                .build();
 
         /**
          * Build a GoogleApiClient with access to the Google Sign-In API and the
          * options specified by gso.
          */
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+//                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//                .build();
     }
 
     @Override
@@ -81,8 +80,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
             linearLayout.setBackgroundResource(R.drawable.background_loginscreen);
         }
     }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-    }
+//
+//    @Override
+//    public void onConnectionFailed(ConnectionResult connectionResult) {
+//    }
 }
